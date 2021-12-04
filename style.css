@@ -1,0 +1,159 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: black;
+}
+#parent{
+    background-color: black;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+    color: aliceblue;
+    
+}
+.searchbar{
+    width: 70%;
+    margin: auto;
+    text-align: right;
+    margin-top: 30px;
+}
+.searchbar #search{
+    background-color: azure;
+}
+.searchbar #searchbtn{
+    color: azure;
+    background-color: rgb(21, 116, 241);
+}
+#container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    width: 70%;
+    margin: auto;
+    justify-content: space-between;
+    justify-items:self-end;
+    color: white;
+}
+#addicon{
+    width: 25px;
+    height: 25px;
+    margin: 0px 10px 0px 10px;
+    cursor: pointer;
+    
+}
+#addicon:hover{
+    transform: scale(1.2);
+}
+#addlist{
+    display: flex;
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.head{
+    font-family: 'Lora', serif;
+    font-weight: 800;
+    font-size: 42px;
+}
+.head .li{
+    font-family: 'Josefin Slab', serif;
+    font-weight: 100;
+}
+.card{
+    height: 50vh;
+    width: 20%;
+    color: tomato;
+    text-align: center;
+    background-color: whitesmoke;
+    margin: 10px;
+    font-size: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 12px;
+    border: rgb(21, 116, 241) solid 1px;
+    padding: 7px;
+}
+.pop{
+    width: 25%;
+    height: 25vh;
+    background-color: aliceblue;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    position: fixed;
+    left: 36%;
+    top: 30%;
+    display: none;
+    justify-content: space-between;
+    flex-direction: column;
+    color: blue;
+    border-radius: 14px;
+    padding: 40px 20px;
+    z-index: 999;
+    border: solid 2px tomato;
+    box-shadow: thistle 2px 2px 12px;
+    filter: blur(0px);
+
+}
+.inputtext{
+    background-color: white;
+    border: tomato solid 2px;
+    border-radius: 9px;
+    width: 90%;
+    height: 5vh;
+    text-align: center;
+    margin-top: 15px;
+}
+.addbttn{
+    color: white;
+    background-color: tomato;
+    border-radius: 8px;
+    width: 28%;
+    height: 5vh;
+
+}
+.removeicons{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+.text{
+    color: tomato;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.deleteicon{
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    margin-left: 10px;
+    z-index: 99;
+}
+.notescard{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    color: slateblue;
+}
+.aicons{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-right: 15px;
+}
+h2{
+    color: black;
+}
