@@ -17,19 +17,7 @@ body{
     color: aliceblue;
     
 }
-.searchbar{
-    width: 70%;
-    margin: auto;
-    text-align: right;
-    margin-top: 30px;
-}
-.searchbar #search{
-    background-color: azure;
-}
-.searchbar #searchbtn{
-    color: azure;
-    background-color: rgb(21, 116, 241);
-}
+
 #container{
     display: flex;
     flex-direction: row;
@@ -156,4 +144,50 @@ body{
 }
 h2{
     color: black;
+}
+hr{
+    margin-top: 10px;
+}
+.markbtn{
+    font-size: 10px;
+    color:black;
+    background-color: cornflowerblue;
+    border-radius: 20px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    padding: 2px;
+}
+#cardop{
+    display: none;
+    width: 24%;
+    height: 60vh;
+    margin: auto;
+    text-align: center;
+    background-color: white;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 25px;
+    border-radius: 15px;
+}
+#nav2{
+    display: none;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+    color: aliceblue;
+    
+}
+#backicon{
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    margin-left: 10px;
+    z-index: 99;
+    margin-right: 20px
+}
+#back{
+    display: flex;
+    font-size: 22px;
 }
