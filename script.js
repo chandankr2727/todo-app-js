@@ -1,5 +1,5 @@
 showtasks()
-
+shownotes()
 document.getElementById("addlist").addEventListener("click",add)
 function add(){
   document.getElementById("parent").style.filter="blur(7px)"
@@ -38,8 +38,8 @@ function showtasks(){
     let html2="";
     tasksObj.forEach(function(element,index){
         html+=`
-        <div class="card" id="${index+"a"}" onclick="showcard(this.id)">
-        <div >${element}<br><hr></div>
+        <div class="card" >
+        <div id="${index+"a"}" onclick="showcard(this.id)">${element}<br><hr></div>
         <div id="addlists" class="notescard"></div>
         <div class="aicons">
         <div>
@@ -83,6 +83,7 @@ function deletetask(index){
     tasksObj.splice(index,1)
     localStorage.setItem("tasks",JSON.stringify(tasksObj))
     showtasks();
+    shownotes();
 }
 function addlists(){
     document.getElementById("parent").style.filter="blur(7px)"
@@ -125,11 +126,10 @@ function shownotes(index2){
         `
     })
     let noteslm=document.getElementById("addlists")
-    if (notesObj.length==0) {
-        noteslm.innerText="No task"
-    }
-    else{
+    let noteslm2=document.getElementById("addlists2")
+    if (notesObj.length!=0) {
         noteslm.innerHTML=html3
+        noteslm2.innerHTML=html3
     }
 }
 function strike(index1){
@@ -147,17 +147,19 @@ function strike(index1){
 }
 function showcard(cardindex){
 
-    let cd=document.getElementById(cardindex).innerHTML
-    document.getElementById("cardop").innerHTML=cd
+    let cd=document.getElementById(cardindex).innerText
+    document.getElementById("cardh").innerText=cd
 
     document.getElementById("nav2").style.display="flex"
     document.getElementById("cardop").style.display="flex"
     document.getElementById("navshow").style.display="none"
     document.getElementById("container").style.display="none"
+    shownotes()
 }
 function backhandle(){
     document.getElementById("nav2").style.display="none"
     document.getElementById("cardop").style.display="none"
     document.getElementById("navshow").style.display="flex"
     document.getElementById("container").style.display="flex"
+    shownotes()
 }
