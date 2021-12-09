@@ -12,80 +12,77 @@ function remove(){
 }
 document.getElementById("addbtn").addEventListener("click",addtask)
 function addtask(){
-    addtext=document.getElementById("addinput")
-    tasks=localStorage.getItem("tasks")
-    if(tasks==null){
-        tasksObj=[];
+    addtext=document.getElementById("addinput").value
+    tasks=localStorage.getItem("taskslist")
+    if (tasks==null) {
+        tasksarr=[];
     }
     else{
-        tasksObj=JSON.parse(tasks)
+        tasksarr=JSON.parse(tasks)
     }
-    tasksObj.push(addtext.value);
-    localStorage.setItem("tasks",JSON.stringify(tasksObj))
-    showtasks();
+    
+    tasksObj={
+        id:Date.now(),
+        name:addtext,
+        subtasks:[]
+    }
+
+    tasksarr.push(tasksObj)
+    localStorage.setItem("taskslist",JSON.stringify(tasksarr));
     document.getElementById("parent").style.filter="blur(0px)"
     document.getElementById("popup").style.display="none"
+    showtasks()
+    shownotes()
 }
 function showtasks(){
-    tasks=localStorage.getItem("tasks")
+    tasks=localStorage.getItem("taskslist")
     if(tasks==null){
-        tasksObj=[];
+        tasksarr=[];
     }
     else{
-        tasksObj=JSON.parse(tasks)
+        tasksarr=JSON.parse(tasks)
     }
     let html="";
-    let html2="";
-    tasksObj.forEach(function(element,index){
+    tasksarr.forEach(function(element,index){
         html+=`
         <div class="card" >
-        <div id="${index+"a"}" onclick="showcard(this.id)">${element}<br><hr></div>
-        <div id="addlists" class="notescard"></div>
+        <div  onclick="showcard(${element.id})">${element.name}<br><hr></div>
+        <div id="${element.id}"  class="notescard"></div>
         <div class="aicons">
         <div>
-        <img src="./images/add.png" alt="" class="deleteicon" id="${'a'+index}" onclick="addlists(this.id)" >
+        <img src="./images/add.png" alt="" class="deleteicon" onclick="addlists(${element.id})" >
         </div>
         <div> 
-        <img src="./images/delete.png" alt="" class="deleteicon" id="${index}" onclick="deletetask(this.id)">
+        <img src="./images/delete.png" alt="" class="deleteicon" onclick="deletetask(${index})">
         </div>
         </div>
         </div>
         `
-        html2+=`
-    <div id="popup2" class="pop">
-    <div class="text">Add New List</div>
-    <img src="./images/remove.png" alt="" id="removeicon2" class="removeicons" onclick="remove1()">
-    <input type="text" id="notelist" class="inputtext"> <br>
-    <button  class="addbttn" id="${'a'+index}"" onclick="addnotes(this.id)" >Add</button>
-    </div>
-    `
-       
     });
     let taskelm=document.getElementById("container")
-    let poplm=document.getElementById("sep")
-    if (tasksObj.length==0) {
+    if (tasksarr.length==0) {
         taskelm.innerHTML=`<h2>No Notes</h2>`
     }
     else{
         taskelm.innerHTML=html
-        poplm.innerHTML=html2
     }
 }
 function deletetask(index){
-    tasks=localStorage.getItem("tasks")
-    console.log(index);
+    tasks=localStorage.getItem("taskslist")
     if(tasks==null){
-        tasksObj=[];
+        tasksarr=[];
     }
     else{
-        tasksObj=JSON.parse(tasks)
+        tasksarr=JSON.parse(tasks)
     }
-    tasksObj.splice(index,1)
-    localStorage.setItem("tasks",JSON.stringify(tasksObj))
+    tasksarr.splice(index,1)
+    localStorage.setItem("taskslist",JSON.stringify(tasksarr))
     showtasks();
     shownotes();
 }
-function addlists(){
+let newid;
+function addlists(id){
+    newid=id
     document.getElementById("parent").style.filter="blur(7px)"
     document.getElementById("popup2").style.display="flex" 
 }
@@ -93,73 +90,87 @@ function remove1(){
     document.getElementById("parent").style.filter="blur(0px)"
     document.getElementById("popup2").style.display="none"
 }
-function addnotes(index){
+function addnotes(){
+    let ids=newid
     note=document.getElementById("notelist").value
-    index=localStorage.getItem("index")
-    if(index==null){
-        notesObj=[];
+    tasks=localStorage.getItem("taskslist")
+    if(tasks==null){
+        tasksarr=[];
     }
     else{
-        notesObj=JSON.parse(index)
+        tasksarr=JSON.parse(tasks)
     }
-    notesObj.push(note);
-    localStorage.setItem("index",JSON.stringify(notesObj))
-
-   
+    tasksarr.forEach(function(element,index) {
+        if (element.id==ids) {
+            tasksarr[index].subtasks.push(note)
+            localStorage.setItem("taskslist",JSON.stringify(tasksarr))
+        }
+    });
     document.getElementById("parent").style.filter="blur(0px)"
     document.getElementById("popup2").style.display="none"
-    shownotes(index);
+    shownotes();
 }
-function shownotes(index2){
-    notelist=document.getElementById(index2)
-    index=localStorage.getItem("index")
-    if (index==null) {
-        notesObj=[];
+function shownotes(){
+    tasks=localStorage.getItem("taskslist")
+    if (tasks==null) {
+        tasksarr=[];
     }
     else{
-        notesObj=JSON.parse(index)
-    }
-    let html3="";
-    notesObj.forEach(function(value,index){
-        html3+=`
-        <div id="${index}" onclick="strike(this.id)" >${value}<button class="markbtn">Mark Done</button></div>
-        `
-    })
-    let noteslm=document.getElementById("addlists")
-    let noteslm2=document.getElementById("addlists2")
-    if (notesObj.length!=0) {
+        tasksarr=JSON.parse(tasks)
+    }    
+    tasksarr.forEach((element,index) => {
+        let html3="";
+        let noteslm=document.getElementById(element.id)
+        tasksarr[index].subtasks.forEach((element,index) => {
+            html3+=`
+            <div id="${element}" onclick="strike(this.id)" >${element}<button class="markbtn">Mark Done</button></div>
+            `
+        });
         noteslm.innerHTML=html3
-        noteslm2.innerHTML=html3
-    }
+    });
 }
 function strike(index1){
-    index=localStorage.getItem("index")
-    if (index==null) {
-        notesObj=[];
-    }
-    else{
-        notesObj=JSON.parse(index)
-    }
-    let red=notesObj[index1]
-    done=document.getElementById(index1)
-    done.innerHTML="<del id='dl'></del>"
-    document.getElementById("dl").innerText=red
+    let val=index1
+    tasks=localStorage.getItem("taskslist")
+    tasksarr=JSON.parse(tasks)
+    tasksarr.forEach((element,index) => {
+        tasksarr[index].subtasks.forEach((element,index) => {
+          if (val==element) {
+            document.getElementById(element).innerHTML="<del id='dl'></del>"
+            document.getElementById("dl").innerText=val
+          }
+        });
+    });
+    
 }
 function showcard(cardindex){
-
-    let cd=document.getElementById(cardindex).innerText
-    document.getElementById("cardh").innerText=cd
-
+    tasksarr.forEach(function(element,index){
+       if ( tasksarr[index].id==cardindex) {
+        document.getElementById("cardop").innerHTML=` <div id="cardh" >${element.name}<br><hr></div>
+        <div id="${element.id}" class="notescard"></div>
+        <div>
+          <div class="aicons">
+            <div>
+            <img src="./images/add.png" alt="" class="deleteicon" onclick="addlists(${element.id})" >
+            </div>
+            <div> 
+            <img src="./images/delete.png" alt="" class="deleteicon" onclick="deletetask(${index})">
+            </div>
+          </div>
+        </div>
+      </div>`
+       }
+    })
     document.getElementById("nav2").style.display="flex"
     document.getElementById("cardop").style.display="flex"
     document.getElementById("navshow").style.display="none"
     document.getElementById("container").style.display="none"
-    shownotes()
+    shownotes();
 }
 function backhandle(){
     document.getElementById("nav2").style.display="none"
     document.getElementById("cardop").style.display="none"
     document.getElementById("navshow").style.display="flex"
     document.getElementById("container").style.display="flex"
-    shownotes()
+window.location.reload()
 }

@@ -4,16 +4,26 @@
 }
 body{
     background-color: black;
+    background-image: url(./images/wall2.jpg);
+    background-size: contain;
 }
 #parent{
-    background-color: black;
+    background-color: rgba(59, 94, 122, 0.781);
+    width: 80%;
+    padding: 15px;
+    padding-bottom: 25px;
+    margin: auto;
+    margin-top: 4%;
+    text-align: center;
+    border-radius: 19px;
+    box-shadow: rgb(14, 51, 75) 10px 10px 17px;
+
 }
 .navbar{
     display: flex;
     justify-content: space-between;
-    width: 70%;
+    width: 85%;
     margin: auto;
-    margin-top: 20px;
     color: aliceblue;
     
 }
@@ -22,17 +32,20 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
-    width: 70%;
+    width: 100%;
     margin: auto;
     justify-content: space-between;
     justify-items:self-end;
     color: white;
 }
 #addicon{
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     margin: 0px 10px 0px 10px;
     cursor: pointer;
+    border-radius: 50%;
+    box-shadow: rgb(8, 38, 77) 4px 4px 9px;
+
     
 }
 #addicon:hover{
@@ -44,20 +57,33 @@ body{
     font-weight: 400;
     margin-top: 15px;
     cursor: pointer;
+    text-shadow: rgb(8, 38, 77) 2px 2px 7px;
+
+}
+.addtext:hover{
+    transform: scale(1.05);
 }
 .head{
     font-family: 'Lora', serif;
     font-weight: 800;
-    font-size: 42px;
+    font-size: 49px;
+    text-shadow: rgb(26, 54, 90) 4px 4px 9px;
+
 }
 .head .li{
     font-family: 'Josefin Slab', serif;
-    font-weight: 100;
+    font-weight: 10;
+    text-shadow: rgb(8, 38, 77) 4px 4px 9px;
+}
+.addtext{
+    font-size: 27px;
+    text-shadow: rgb(8, 38, 77) 4px 4px 9px;
+
 }
 .card{
     height: 50vh;
     width: 20%;
-    color: tomato;
+    color: rgb(15, 99, 168);
     text-align: center;
     background-color: whitesmoke;
     margin: 10px;
@@ -66,8 +92,9 @@ body{
     flex-direction: column;
     justify-content: space-between;
     border-radius: 12px;
-    border: rgb(21, 116, 241) solid 1px;
+    border: rgb(45, 112, 189) solid 1.5px;
     padding: 7px;
+    box-shadow: rgb(14, 47, 90) 4px 4px 10px ;
 }
 .pop{
     width: 25%;
@@ -86,14 +113,14 @@ body{
     border-radius: 14px;
     padding: 40px 20px;
     z-index: 999;
-    border: solid 2px tomato;
-    box-shadow: thistle 2px 2px 12px;
+    border: solid 2px rgb(0, 87, 128);
+    box-shadow: rgb(147, 175, 218) 2px 2px 12px;
     filter: blur(0px);
 
 }
 .inputtext{
     background-color: white;
-    border: tomato solid 2px;
+    border: rgb(44, 78, 192) solid 2px;
     border-radius: 9px;
     width: 90%;
     height: 5vh;
@@ -102,11 +129,14 @@ body{
 }
 .addbttn{
     color: white;
-    background-color: tomato;
+    background-color: rgb(8, 55, 126);
     border-radius: 8px;
     width: 28%;
     height: 5vh;
 
+}
+.addbttn:hover{
+    transform: scale(1.2);
 }
 .removeicons{
     width: 30px;
@@ -117,8 +147,11 @@ body{
     background-color: white;
     cursor: pointer;
 }
+.removeicons:hover{
+    transform: scale(1.2);
+}
 .text{
-    color: tomato;
+    color: rgb(41, 97, 219);
     font-size: 25px;
     font-weight: 700;
 }
@@ -129,12 +162,18 @@ body{
     cursor: pointer;
     margin-left: 10px;
     z-index: 99;
+    border-radius: 50%;
+    text-shadow: rgb(45, 61, 77) 4px 4px 9px;
+
+}
+.deleteicon:hover{
+    transform: scale(1.2);
 }
 .notescard{
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    color: slateblue;
+    color: rgb(31, 67, 121);
 }
 .aicons{
     display: flex;
@@ -148,10 +187,11 @@ h2{
 hr{
     margin-top: 10px;
 }
+
 .markbtn{
     font-size: 10px;
     color:black;
-    background-color: cornflowerblue;
+    background-color: rgb(125, 163, 233);
     border-radius: 20px;
     border: none;
     margin: 10px;
@@ -160,7 +200,7 @@ hr{
 }
 #cardop{
     display: none;
-    width: 24%;
+    width: 28%;
     height: 60vh;
     margin: auto;
     text-align: center;
@@ -170,24 +210,40 @@ hr{
     font-size: 25px;
     border-radius: 15px;
 }
+#cardh{
+    font-size: 34px;
+}
 #nav2{
     display: none;
     justify-content: space-between;
     width: 70%;
     margin: auto;
-    margin-top: 20px;
     color: aliceblue;
     
 }
 #backicon{
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     margin-left: 10px;
     z-index: 99;
-    margin-right: 20px
+    margin-right: 20px;
+    border-radius: 50%;
+    box-shadow: rgb(8, 38, 77) 4px 4px 9px;
+
+}
+#backicon:hover{
+    transform: scale(1.2);
 }
 #back{
     display: flex;
-    font-size: 22px;
+    margin-left: 20px;
+}
+#textb{
+    font-size: 28px;
+    text-shadow: rgb(8, 38, 77) 4px 4px 9px;
+
+}
+#textb:hover{
+    transform: scale(1.07);
 }

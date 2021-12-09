@@ -13,13 +13,16 @@
 <body>
   <div id="popup" class="pop">
     <div class="text">Add New Task</div>
-    <img src="./images/remove.png" alt="" id="removeicon" class="removeicons">
+    <img src="./images/previous.png" alt="" id="removeicon" class="removeicons">
     <input type="text" id="addinput" class="inputtext" > <br>
     <button id="addbtn" class="addbttn">Add</button>
   </div>
-  <div id="sep">
-
-  </div>
+  <div id="popup2" class="pop">
+    <div class="text">Add New List</div>
+    <img src="./images/previous.png" alt="" id="removeicon2" class="removeicons" onclick="remove1()">
+    <input type="text" id="notelist" class="inputtext"> <br>
+    <button  class="addbttn" onclick="addnotes()" >Add</button>
+    </div>
   <div id="parent">
   <nav class="navbar" id="navshow">
     <div class="head">
@@ -34,7 +37,7 @@
     <div id="nav2">
       <div id="back" onclick="backhandle()">
         <img src="./images/previous.png" alt="" id="backicon">
-        <div id="text">Back</div>
+        <div id="textb">Back</div>
     </div>
       <div id="addlist">
         <div><img src="./images/add.png" alt="" id="addicon"></div>
@@ -42,19 +45,7 @@
       </div>
     </div>
   <div id="cardop" class="card" >
-    <div id="cardh" ></div>
-    <div id="addlists2" class="notescard"></div>
-    <div>
-      <div class="aicons">
-        <div>
-        <img src="./images/add.png" alt="" class="deleteicon" id="${'a'+index}" onclick="addlists(this.id)" >
-        </div>
-        <div> 
-        <img src="./images/delete.png" alt="" class="deleteicon" id="${index}" onclick="deletetask(this.id)">
-        </div>
-      </div>
-    </div>
-  </div>
+   
 </div>
   <div id="container">
     
