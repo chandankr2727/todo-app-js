@@ -46,7 +46,7 @@ function showtasks(){
     tasksarr.forEach(function(element,index){
         html+=`
         <div class="card" >
-        <div  onclick="showcard(${element.id})">${element.name}<br><hr></div>
+        <div  onclick="showcard(${element.id})" class="cardhead">${element.name}<br><hr></div>
         <div id="${element.id}"  class="notescard"></div>
         <div class="aicons">
         <div>
@@ -61,7 +61,7 @@ function showtasks(){
     });
     let taskelm=document.getElementById("container")
     if (tasksarr.length==0) {
-        taskelm.innerHTML=`<h2>No Notes</h2>`
+        taskelm.innerHTML=`<h2>No Task in the ToDo List</h2>`
     }
     else{
         taskelm.innerHTML=html
@@ -146,7 +146,7 @@ function strike(index1){
 function showcard(cardindex){
     tasksarr.forEach(function(element,index){
        if ( tasksarr[index].id==cardindex) {
-        document.getElementById("cardop").innerHTML=` <div id="cardh" >${element.name}<br><hr></div>
+        document.getElementById("cardop").innerHTML=` <div id="cardh" class="cardhead2" >${element.name}<br><hr></div>
         <div id="${element.id}" class="notescard"></div>
         <div>
           <div class="aicons">

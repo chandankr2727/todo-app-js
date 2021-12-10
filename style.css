@@ -113,8 +113,8 @@ body{
     border-radius: 14px;
     padding: 40px 20px;
     z-index: 999;
-    border: solid 2px rgb(0, 87, 128);
-    box-shadow: rgb(147, 175, 218) 2px 2px 12px;
+    border: solid 2px rgb(44, 156, 248);
+    box-shadow: rgb(57, 67, 82) 5px 5px 12px;
     filter: blur(0px);
 
 }
@@ -129,10 +129,12 @@ body{
 }
 .addbttn{
     color: white;
-    background-color: rgb(8, 55, 126);
+    background-color: rgb(34, 83, 155);
     border-radius: 8px;
-    width: 28%;
-    height: 5vh;
+    width: 30%;
+    height: 5.4vh;
+    border: 1.7px solid rgb(120, 174, 245);
+    box-shadow: rgb(85, 119, 129) 3px 3px 9px;
 
 }
 .addbttn:hover{
@@ -146,13 +148,15 @@ body{
     right: 10px;
     background-color: white;
     cursor: pointer;
+    border-radius: 50%;
+    box-shadow: rgb(60, 92, 112) 3px 3px 9px;
 }
 .removeicons:hover{
     transform: scale(1.2);
 }
 .text{
     color: rgb(41, 97, 219);
-    font-size: 25px;
+    font-size: 28px;
     font-weight: 700;
 }
 
@@ -182,7 +186,9 @@ body{
     margin-right: 15px;
 }
 h2{
-    color: black;
+    color: white;
+    font-size: 32px;
+    margin: 50px;
 }
 hr{
     margin-top: 10px;
@@ -246,4 +252,11 @@ hr{
 }
 #textb:hover{
     transform: scale(1.07);
+}
+.cardhead{
+    font-size: 28px;
+    font-weight: 550;
+}
+.cardhead2{
+    font-weight: 600;
 }
